@@ -1,4 +1,4 @@
-<nav class="sidenav" [class.rtl]="direction === 'rtl'">
+<nav class="sidenav" [class.collapsed]="collapsed" [class.rtl]="direction === 'rtl'">
   <div class="sidenav-header">
     <span class="logo">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -6,7 +6,10 @@
         <text x="16" y="22" text-anchor="middle" fill="#fff" font-size="18" font-family="Open Sans" font-weight="bold">C</text>
       </svg>
     </span>
-    <span class="company-name">Accountia</span>
+    <span class="company-name" *ngIf="!collapsed">Accountia</span>
+    <button class="collapse-btn" (click)="toggleSidenav()" [attr.aria-label]="collapsed ? 'Expand menu' : 'Collapse menu'">
+      <img src="assets/svg/arrow.svg" alt="Collapse" [class.rotated]="collapsed" />
+    </button>
   </div>
   <ul class="sidenav-menu">
     <li *ngFor="let item of menuItems"
@@ -14,9 +17,16 @@
         [class.active]="isActive(item.route)"
         (click)="onMenuClick(item, $event)">
       <img class="icon" [src]="item.icon" [alt]="item.label | translate" />
-      <span class="label">{{ item.label | translate }}</span>
-      <span class="dropdown" *ngIf="item.hasDropdown">▼</span>
-      <ul *ngIf="item.children && openDropdown === item.route" class="submenu">
+      <span class="label" *ngIf="!collapsed">{{ item.label | translate }}</span>
+      <span class="dropdown" *ngIf="item.hasDropdown && !collapsed">
+        <svg
+          [class.rotated]="openDropdown === item.route"
+          width="16" height="16" viewBox="0 0 16 16" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 6L8 11L3 6" stroke="#CBD2D9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <ul *ngIf="item.children && openDropdown === item.route && !collapsed" class="submenu">
         <li *ngFor="let child of item.children" class="submenu-item" (click)="onMenuClick(child, $event)">
           <img class="icon" [src]="child.icon" [alt]="child.label | translate" />
           <span class="label">{{ child.label | translate }}</span>

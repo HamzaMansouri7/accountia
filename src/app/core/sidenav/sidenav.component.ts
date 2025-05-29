@@ -38,6 +38,7 @@ export class SidenavComponent {
   direction: string = 'ltr';
   menuItems: SidenavMenuItem[] = [];
   openDropdown: string | null = null;
+  collapsed = false;
   constructor(
     private languageService: LanguageService,
     private sidenavService: SidenavService,
@@ -53,11 +54,23 @@ export class SidenavComponent {
   }
 
   onMenuClick(item: SidenavMenuItem, event?: MouseEvent) {
+    console.log('Menu item clicked:', item);
     if (item.hasDropdown) {
-      this.openDropdown = this.openDropdown === item.route ? null : item.route;
+      if (this.openDropdown === item.route) {
+        console.log('Closing dropdown for:', item.route);
+        this.openDropdown = null;
+      } else {
+        console.log('Opening dropdown for:', item.route);
+        this.openDropdown = item.route;
+      }
       if (event) event.stopPropagation();
     } else {
+      console.log('Navigating to:', item.route);
       this.sidenavService.navigateTo(item.route);
     }
+  }
+
+  toggleSidenav() {
+    this.collapsed = !this.collapsed;
   }
 } 

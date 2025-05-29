@@ -539,6 +539,22 @@
   left: 0;
   z-index: 1001;
   font-family: 'Open Sans', sans-serif;
+  transition: width 0.2s, left 0.2s, right 0.2s;
+}
+
+.sidenav.rtl {
+  left: auto;
+  right: 0;
+}
+
+.sidenav.collapsed {
+  width: 60px;
+}
+
+.sidenav.collapsed .company-name,
+.sidenav.collapsed .label,
+.sidenav.collapsed .dropdown {
+  display: none !important;
 }
 
 .sidenav-header {
@@ -548,6 +564,37 @@
   padding: 0 24px;
   background: #4A2260;
   border-bottom: none;
+  position: relative;
+}
+
+.collapse-btn {
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #E7AC28;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, right 0.2s, left 0.2s;
+}
+
+.sidenav.rtl .collapse-btn {
+  right: auto;
+  left: -12px;
+}
+
+.collapse-btn:hover {
+  background: #c18c1b;
 }
 
 .logo {
@@ -634,4 +681,20 @@
 .submenu-item:hover, .submenu-item.active {
   color: #E7AC28;
   background: rgba(231, 172, 40, 0.08);
+}
+
+.collapse-btn img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s;
+}
+.collapse-btn img.rotated {
+  transform: rotate(180deg);
+}
+
+.dropdown svg {
+  transition: transform 0.2s;
+}
+.dropdown svg.rotated {
+  transform: rotate(180deg);
 }

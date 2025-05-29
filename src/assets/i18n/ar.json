@@ -6,12 +6,13 @@
     "logout": "تسجيل الخروج",
     "invoices": "الفواتير",
     "contact": "جهات الاتصال",
-    "warehouse": "المخزن",
-    "product": "المنتج",
+    "warehouse": "المستودع",
+    "product": "المنتجات",
     "fees": "الرسوم",
-    "employees": "الموظفون",
-    "salary": "الراتب",
-    "reports": "التقارير"
+    "employees": "الموظفين",
+    "salary": "الرواتب",
+    "reports": "التقارير",
+    "analytics": "التحليلات"
   },
   "common": {
     "welcome": "مرحباً",
@@ -29,7 +30,25 @@
   },
   "reports": {
     "sales": "تقرير المبيعات",
-    "finance": "تقرير المالي",
-    "inventory": "تقرير المخزون"
+    "finance": "التقرير المالي",
+    "inventory": "تقرير المخزون",
+    "employees": "تقرير الموظفين",
+    "customers": "تقرير العملاء",
+    "suppliers": "تقرير الموردين",
+    "tax": "تقرير الضرائب"
+  },
+  "analytics": {
+    "performance": "تحليلات الأداء",
+    "trends": "تحليلات الاتجاهات",
+    "forecasting": "تحليلات التنبؤ",
+    "comparison": "تحليلات المقارنة"
+  },
+  "settings": {
+    "company": "إعدادات الشركة",
+    "users": "إعدادات المستخدمين",
+    "roles": "إعدادات الأدوار",
+    "integrations": "إعدادات التكامل",
+    "notifications": "إعدادات الإشعارات",
+    "backup": "إعدادات النسخ الاحتياطي"
   }
 } 

@@ -11,7 +11,8 @@
     "fees": "Fees",
     "employees": "Employees",
     "salary": "Salary",
-    "reports": "Reports"
+    "reports": "Reports",
+    "analytics": "Analytics"
   },
   "common": {
     "welcome": "Welcome",
@@ -30,6 +31,24 @@
   "reports": {
     "sales": "Sales Report",
     "finance": "Finance Report",
-    "inventory": "Inventory Report"
+    "inventory": "Inventory Report",
+    "employees": "Employees Report",
+    "customers": "Customers Report",
+    "suppliers": "Suppliers Report",
+    "tax": "Tax Report"
+  },
+  "analytics": {
+    "performance": "Performance Analytics",
+    "trends": "Trends Analytics",
+    "forecasting": "Forecasting Analytics",
+    "comparison": "Comparison Analytics"
+  },
+  "settings": {
+    "company": "Company Settings",
+    "users": "Users Settings",
+    "roles": "Roles Settings",
+    "integrations": "Integrations Settings",
+    "notifications": "Notifications Settings",
+    "backup": "Backup Settings"
   }
 } 
