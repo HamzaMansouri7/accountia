@@ -1,0 +1,25 @@
+<div class="language-switcher">
+  <div class="languages_input" (click)="toggleDropdown(); $event.stopPropagation()" tabindex="0" role="button" aria-haspopup="listbox" [attr.aria-expanded]="isOpen">
+    <div class="rectangle-194_01"></div>
+    <img class="flag" [src]="currentLanguage.flag" alt="flag" />
+    <span class="lang-label">{{ currentLanguage.name }}</span>
+    <span class="down-arrow-svg">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13 6L8 11L3 6" stroke="#3E4C59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </div>
+  <div class="dropdown" *ngIf="isOpen" (mousedown)="$event.stopPropagation()">
+    <div
+      class="dropdown-item"
+      *ngFor="let lang of languages"
+      [class.selected]="lang.code === currentLang"
+      (click)="selectLanguage(lang.code); $event.stopPropagation()"
+      role="option"
+      [attr.aria-selected]="lang.code === currentLang"
+    >
+      <img class="flag" [src]="lang.flag" alt="flag" />
+      <span class="lang-label">{{ lang.name }}</span>
+    </div>
+  </div>
+</div> 

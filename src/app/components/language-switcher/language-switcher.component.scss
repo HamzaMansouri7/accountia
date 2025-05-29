@@ -1,0 +1,130 @@
+.language-switcher {
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  z-index: 1100;
+
+  .languages_input {
+    width: 210px;
+    height: 44px;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px #72418B solid;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    position: relative;
+    padding: 0 12px;
+    gap: 8px;
+    box-sizing: border-box;
+    transition: border 0.2s;
+    outline: none;
+
+    &:hover, &:focus {
+      border-color: #3E4C59;
+    }
+
+    .flag {
+      width: 28px;
+      height: 20px;
+      border-radius: 4px;
+      object-fit: cover;
+      margin-right: 8px;
+      margin-left: 0;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .lang-label {
+      color: #3E4C59;
+      font-size: 16px;
+      font-weight: 400;
+      flex: 1 1 auto;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      margin-right: 4px;
+    }
+
+    .down-arrow-svg {
+      display: flex;
+      align-items: center;
+      margin-left: 4px;
+      svg {
+        display: block;
+      }
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px #72418B solid;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(79, 37, 102, 0.18);
+    z-index: 1200;
+    padding: 8px 0;
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #3E4C59;
+      border-radius: 4px;
+      transition: background 0.18s, color 0.18s;
+
+      .flag {
+        width: 28px;
+        height: 20px;
+        border-radius: 4px;
+        object-fit: cover;
+        margin-right: 8px;
+        margin-left: 0;
+        display: block;
+        flex-shrink: 0;
+      }
+
+      .lang-label {
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &.selected, &:hover {
+        background: #F3EFFF;
+        color: #6B3FA0;
+      }
+    }
+  }
+}
+
+// RTL Support
+[dir="rtl"] {
+  .language-switcher {
+    .languages_input {
+      flex-direction: row-reverse;
+      .down-arrow-svg {
+        margin-left: 0;
+        margin-right: 4px;
+      }
+    }
+    
+    .dropdown {
+      right: auto;
+      left: 0;
+    }
+  }
+} 

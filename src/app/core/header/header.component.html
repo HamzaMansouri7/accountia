@@ -1,14 +1,16 @@
 <header class="header">
   <div class="header-left">
-    <div class="company-badge">C</div>
-    <span class="company-name">Company Name 1</span>
+    <app-company-selector></app-company-selector>
     <span class="dropdown-icon">&#9660;</span>
-    <span class="reports-link">Reports</span>
+    <span class="reports-link">{{ 'header.reports' | translate }}</span>
   </div>
   <div class="header-right">
-    <span class="user-name">John Doe</span>
+    <span class="user-name">{{ 'header.userName' | translate }}</span>
     <img class="user-avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="User Avatar" />
     <span class="user-dropdown">&#9660;</span>
-    <span class="logout-icon">&#x1F6AA;</span>
+    <app-language-switcher></app-language-switcher>
+    <span class="logout-icon">
+      <img src="assets/svg/logout.svg" alt="Logout" width="24" height="24" />
+    </span>
   </div>
 </header> 

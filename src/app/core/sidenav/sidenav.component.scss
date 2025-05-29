@@ -1,56 +1,637 @@
+.rectangle-178 {
+  width: 190px;
+  height: 1125px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: #4F2566;
+}
+
+.rectangle-179 {
+  width: 190px;
+  height: 72px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: #4A2260;
+}
+
+.dashboard_span {
+  color: #E7AC28;
+  font-size: 16px;
+  font-family: Open Sans;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.dashboard {
+  width: 94px;
+  height: 16px;
+  left: 55px;
+  top: 152px;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.sallary_span {
+  color: #CBD2D9;
+  font-size: 16px;
+  font-family: Open Sans;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.sallary {
+  width: 50px;
+  height: 22px;
+  left: 56px;
+  top: 517px;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.warehouse_span {
+  color: #CBD2D9;
+  font-size: 16px;
+  font-family: Open Sans;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.warehouse {
+  width: 86px;
+  height: 22px;
+  left: 54px;
+  top: 304px;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_span {
+  color: #CBD2D9;
+  font-size: 16px;
+  font-family: Open Sans;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.contact {
+  width: 88px;
+  height: 18px;
+  left: 55px;
+  top: 254px;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.invoices_span {
+  color: #CBD2D9;
+  font-size: 16px;
+  font-family: Open Sans;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.invoices {
+  width: 61px;
+  height: 22px;
+  left: 55px;
+  top: 200px;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.product_span {
+  color: #CBD2D9;
+  font-size: 16px;
+  font-family: Open Sans;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.product {
+  width: 59px;
+  height: 22px;
+  left: 54px;
+  top: 358px;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.fees_span {
+  color: #CBD2D9;
+  font-size: 16px;
+  font-family: Open Sans;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.fees {
+  width: 34px;
+  height: 22px;
+  left: 54px;
+  top: 412px;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.employees_span {
+  color: #CBD2D9;
+  font-size: 16px;
+  font-family: Open Sans;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.employees {
+  width: 88px;
+  height: 19px;
+  left: 54px;
+  top: 466px;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.reports_span {
+  color: #CBD2D9;
+  font-size: 16px;
+  font-family: Open Sans;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.reports {
+  left: 54px;
+  top: 571px;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.ellipse-31 {
+  left: 24px;
+  top: 519px;
+  position: absolute;
+}
+
+.vector-45 {
+  left: 30.35px;
+  top: 523.23px;
+  position: absolute;
+}
+
+.vector-2 {
+  left: 24px;
+  top: 307px;
+  position: absolute;
+}
+
+.rectangle-182 {
+  left: 28.04px;
+  top: 314.96px;
+  position: absolute;
+}
+
+.vector-3 {
+  left: 32px;
+  top: 316px;
+  position: absolute;
+}
+
+.vector-4 {
+  left: 32px;
+  top: 320.50px;
+  position: absolute;
+}
+
+.vector-20 {
+  left: 24px;
+  top: 255px;
+  position: absolute;
+}
+
+.vector-21 {
+  left: 33.44px;
+  top: 259.93px;
+  position: absolute;
+}
+
+.rectangle-192 {
+  width: 2px;
+  height: 0.99px;
+  left: 26px;
+  top: 256.98px;
+  position: absolute;
+}
+
+.vector-26 {
+  left: 26px;
+  top: 259.96px;
+  position: absolute;
+}
+
+.vector-28 {
+  left: 26px;
+  top: 261.94px;
+  position: absolute;
+}
+
+.vector-30 {
+  left: 26px;
+  top: 263.92px;
+  position: absolute;
+}
+
+.vector-32 {
+  left: 26px;
+  top: 265.90px;
+  position: absolute;
+}
+
+.vector-34 {
+  left: 26px;
+  top: 267.89px;
+  position: absolute;
+}
+
+.vector-36 {
+  left: 26px;
+  top: 257.97px;
+  position: absolute;
+}
+
+.vector-27 {
+  left: 29px;
+  top: 259.96px;
+  position: absolute;
+}
+
+.vector-29 {
+  left: 29px;
+  top: 261.94px;
+  position: absolute;
+}
+
+.vector-31 {
+  left: 29px;
+  top: 263.92px;
+  position: absolute;
+}
+
+.vector-33 {
+  left: 29px;
+  top: 265.90px;
+  position: absolute;
+}
+
+.vector-35 {
+  left: 29px;
+  top: 267.89px;
+  position: absolute;
+}
+
+.vector-37 {
+  left: 29px;
+  top: 257.97px;
+  position: absolute;
+}
+
+.vector-43 {
+  left: 28.31px;
+  top: 205.31px;
+  position: absolute;
+}
+
+.rectangle-196 {
+  left: 24px;
+  top: 203px;
+  position: absolute;
+}
+
+.vector-44 {
+  left: 26.70px;
+  top: 205.31px;
+  position: absolute;
+}
+
+.vector-12 {
+  left: 26.06px;
+  top: 369.64px;
+  position: absolute;
+}
+
+.vector-14 {
+  left: 26.05px;
+  top: 367.60px;
+  position: absolute;
+}
+
+.vector-13 {
+  left: 28.85px;
+  top: 362.07px;
+  position: absolute;
+}
+
+.vector-10 {
+  left: 31.76px;
+  top: 365.27px;
+  position: absolute;
+}
+
+.vector-9 {
+  left: 24px;
+  top: 363.13px;
+  position: absolute;
+}
+
+.vector-8 {
+  left: 24px;
+  top: 361px;
+  position: absolute;
+}
+
+.vector-42 {
+  left: 32.55px;
+  top: 418.38px;
+  position: absolute;
+}
+
+.vector-41 {
+  left: 26.39px;
+  top: 425.38px;
+  position: absolute;
+}
+
+.vector-40 {
+  left: 25.48px;
+  top: 423.37px;
+  position: absolute;
+}
+
+.ellipse-41 {
+  left: 28.22px;
+  top: 415px;
+  position: absolute;
+}
+
+.rectangle-195 {
+  left: 24px;
+  top: 423.53px;
+  position: absolute;
+}
+
+.ellipse-43 {
+  left: 35px;
+  top: 421.26px;
+  position: absolute;
+}
+
+.ellipse-44 {
+  left: 31px;
+  top: 418.13px;
+  position: absolute;
+}
+
+.rectangle-184 {
+  left: 27.25px;
+  top: 477.27px;
+  position: absolute;
+}
+
+.ellipse-32 {
+  left: 29.42px;
+  top: 470.47px;
+  position: absolute;
+}
+
+.subtract {
+  left: 30.97px;
+  top: 474.80px;
+  position: absolute;
+}
+
+.subtract_02 {
+  left: 24px;
+  top: 474.80px;
+  position: absolute;
+}
+
+.subtract_07 {
+  left: 32.62px;
+  top: 468px;
+  position: absolute;
+}
+
+.subtract_08 {
+  left: 26.17px;
+  top: 468px;
+  position: absolute;
+}
+
+.frame {
+  left: 0px;
+  top: 0px;
+  position: absolute;
+}
+
+.accountia {
+  left: 54.76px;
+  top: 15.78px;
+  position: absolute;
+}
+
+.rectangle-188 {
+  left: 24px;
+  top: 579.94px;
+  position: absolute;
+}
+
+.vector-17 {
+  left: 26px;
+  top: 573px;
+  position: absolute;
+}
+
+.vector-18 {
+  left: 27px;
+  top: 583px;
+  position: absolute;
+}
+
+.vector-19 {
+  left: 34px;
+  top: 583px;
+  position: absolute;
+}
+
+.down-16px {
+  left: 123px;
+  top: 575px;
+  position: absolute;
+}
+
+.logo-2 {
+  width: 136px;
+  height: 44px;
+  left: 20px;
+  top: 14px;
+  position: absolute;
+}
+
+.ellipse-45 {
+  left: 0px;
+  top: 0px;
+  position: absolute;
+}
+
+.left-16px {
+  left: 4px;
+  top: 4px;
+  position: absolute;
+}
+
+.batton-for-full-menu {
+  width: 24px;
+  height: 24px;
+  left: 178px;
+  top: 88px;
+  position: absolute;
+}
+
+.vector-38 {
+  left: 24px;
+  top: 152px;
+  position: absolute;
+}
+
+.left-menu1full {
+  width: 202px;
+  height: 1125px;
+  position: relative;
+}
+
 .sidenav {
   width: 190px;
+  height: 100vh;
   background: #4F2566;
-  color: #CBD2D9;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
   font-family: 'Open Sans', sans-serif;
-  min-height: 100vh;
-  .sidenav-header {
-    height: 72px;
-    background: #4A2260;
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-    .logo {
-      margin-right: 12px;
-    }
-    .company-name {
-      color: #ECB22E;
-      font-weight: 700;
-      font-size: 20px;
-    }
-  }
-  .sidenav-menu {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    margin-top: 24px;
-    .menu-item {
-      display: flex;
-      align-items: center;
-      padding: 12px 24px;
-      font-size: 16px;
-      color: #CBD2D9;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      .icon {
-        margin-right: 16px;
-        display: flex;
-        align-items: center;
-      }
-      &.active, &:hover {
-        background: #6B3FA0;
-        color: #ECB22E;
-        .icon svg path,
-        .icon svg rect {
-          stroke: #ECB22E;
-        }
-      }
-      .dropdown {
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-      }
-    }
-  }
-} 
+}
+
+.sidenav-header {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding: 0 24px;
+  background: #4A2260;
+  border-bottom: none;
+}
+
+.logo {
+  margin-right: 12px;
+}
+
+.company-name {
+  font-weight: 700;
+  font-size: 20px;
+  color: #E7AC28;
+}
+
+.sidenav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 24px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #CBD2D9;
+  cursor: pointer;
+  border-radius: 4px 0 0 4px;
+  transition: background 0.2s, color 0.2s;
+  font-weight: 400;
+}
+
+.menu-item .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 16px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.menu-item.active, .menu-item:hover {
+  background: none;
+  color: #E7AC28;
+}
+
+.menu-item.active .label,
+.menu-item:hover .label {
+  color: #E7AC28;
+}
+
+.menu-item.active .icon,
+.menu-item:hover .icon {
+  filter: brightness(1.2) drop-shadow(0 0 2px #E7AC28);
+}
+
+.submenu {
+  list-style: none;
+  padding: 0 0 0 36px;
+  margin: 0;
+  background: transparent;
+}
+
+.submenu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0 8px 0;
+  font-size: 15px;
+  color: #CBD2D9;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  font-weight: 400;
+}
+
+.submenu-item .icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 12px;
+}
+
+.submenu-item:hover, .submenu-item.active {
+  color: #E7AC28;
+  background: rgba(231, 172, 40, 0.08);
+}

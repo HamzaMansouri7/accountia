@@ -1,67 +1,27 @@
-<nav class="sidenav">
+<nav class="sidenav" [class.rtl]="direction === 'rtl'">
   <div class="sidenav-header">
     <span class="logo">
-      <svg width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="4" fill="#E7AC28"/></svg>
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="8" fill="#E7AC28"/>
+        <text x="16" y="22" text-anchor="middle" fill="#fff" font-size="18" font-family="Open Sans" font-weight="bold">C</text>
+      </svg>
     </span>
     <span class="company-name">Accountia</span>
   </div>
   <ul class="sidenav-menu">
-    <li class="menu-item active">
-      <span class="icon">
-        <svg width="18" height="18" viewBox="0 0 18 18"><path d="M6.44 9.76H1V17H6.44M6.44 9.76V1H11.77V6.72M6.44 9.76V17M11.77 6.72H17V17H11.77M11.77 6.72V17M6.44 17H11.77" stroke="#ECB22E" stroke-width="1.3"/></svg>
-      </span>
-      <span class="label">Dashboard</span>
-    </li>
-    <li class="menu-item">
-      <span class="icon">
-        <svg width="16" height="16" viewBox="0 0 16 16"><rect x="1" y="1" width="13.84" height="13.87" stroke="#CBD2D9" stroke-width="1.3"/></svg>
-      </span>
-      <span class="label">Invoices</span>
-    </li>
-    <li class="menu-item">
-      <span class="icon">
-        <svg width="18" height="18" viewBox="0 0 18 18"><path d="M17 16.86H1V1H10.44V5.91H17V16.86Z" stroke="#CBD2D9" stroke-width="1.3"/></svg>
-      </span>
-      <span class="label">Contact</span>
-    </li>
-    <li class="menu-item">
-      <span class="icon">
-        <svg width="18" height="18" viewBox="0 0 18 18"><path d="M1 16.5V6.18C1 5.42 1.43 4.73 2.12 4.39L8.12 1.44C8.67 1.16 9.33 1.16 9.88 1.44L15.88 4.39C16.57 4.73 17 5.42 17 6.18V16.5" stroke="#CBD2D9" stroke-width="1.3"/></svg>
-      </span>
-      <span class="label">Warehouse</span>
-    </li>
-    <li class="menu-item">
-      <span class="icon">
-        <svg width="18" height="18" viewBox="0 0 18 18"><path d="M1 15.26V3.23L9.83 1L17 3.08V15.26L8.69 17L1 15.26Z" stroke="#CBD2D9" stroke-width="1.3"/></svg>
-      </span>
-      <span class="label">Product</span>
-    </li>
-    <li class="menu-item">
-      <span class="icon">
-        <svg width="14" height="11" viewBox="0 0 14 11"><path d="M12.53 9.3C12.84 8.22 12.84 7.06 12.84 7.06C12.84 3.71 10.24 1 7.03 1C3.82 1 1.22 3.71 1.22 7.06C1.22 7.47 1.26 7.86 1.33 8.24" stroke="#CBD2D9" stroke-width="1.3"/></svg>
-      </span>
-      <span class="label">Fees</span>
-    </li>
-    <li class="menu-item">
-      <span class="icon">
-        <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1.25 6.05C1.25 3.41 3.39 1.27 6.03 1.27C8.67 1.27 10.81 3.41 10.81 6.05V7H1.25V6.05Z" stroke="#CBD2D9" stroke-width="1.3"/></svg>
-      </span>
-      <span class="label">Employees</span>
-    </li>
-    <li class="menu-item">
-      <span class="icon">
-        <svg width="18" height="18" viewBox="0 0 18 18"><path d="M9 0.65C13.61 0.65 17.35 4.39 17.35 9C17.35 13.61 13.61 17.35 9 17.35C4.39 17.35 0.65 13.61 0.65 9C0.65 4.39 4.39 0.65 9 0.65Z" stroke="#CBD2D9" stroke-width="1.3"/></svg>
-      </span>
-      <span class="label">Salary</span>
-    </li>
-    <li class="menu-item">
-      <span class="icon">
-        <svg width="18" height="13" viewBox="0 0 18 13"><rect x="1" y="0.94" width="16" height="11.06" stroke="#CBD2D9" stroke-width="1.3"/></svg>
-      </span>
-      <span class="label">Reports</span>
-      <span class="dropdown">
-        <svg width="16" height="16" viewBox="0 0 16 16"><path d="M13 6L8 11L3 6" stroke="#CBD2D9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
+    <li *ngFor="let item of menuItems"
+        class="menu-item"
+        [class.active]="isActive(item.route)"
+        (click)="onMenuClick(item, $event)">
+      <img class="icon" [src]="item.icon" [alt]="item.label | translate" />
+      <span class="label">{{ item.label | translate }}</span>
+      <span class="dropdown" *ngIf="item.hasDropdown">▼</span>
+      <ul *ngIf="item.children && openDropdown === item.route" class="submenu">
+        <li *ngFor="let child of item.children" class="submenu-item" (click)="onMenuClick(child, $event)">
+          <img class="icon" [src]="child.icon" [alt]="child.label | translate" />
+          <span class="label">{{ child.label | translate }}</span>
+        </li>
+      </ul>
     </li>
   </ul>
-</nav> 
+</nav>

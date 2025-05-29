@@ -1,0 +1,104 @@
+.company-selector {
+  position: relative;
+  width: 250px;
+  font-family: 'Open Sans', sans-serif;
+
+  .selected-company {
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border: 1px solid #e7ac28;
+    gap: 10px;
+    min-height: 48px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #3e4c59;
+    .badge {
+      width: 32px;
+      height: 32px;
+      background: #e7ac28;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+    }
+    .arrow {
+      margin-left: auto;
+      color: #4b2566;
+      font-size: 14px;
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(79, 37, 102, 0.08);
+    border: 1px solid #e7ac28;
+    z-index: 100;
+    padding: 8px 0 0 0;
+
+    .company-option {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #3e4c59;
+      background: transparent;
+      border: none;
+      gap: 10px;
+      .badge {
+        width: 32px;
+        height: 32px;
+        background: #e7ac28;
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8px;
+      }
+      .check {
+        margin-left: auto;
+        svg {
+          display: block;
+        }
+      }
+      &.selected {
+        background: #fffbe6;
+        font-weight: 600;
+      }
+    }
+
+    .divider {
+      height: 1px;
+      background: #3e4c59;
+      opacity: 0.10;
+      margin: 8px 0;
+    }
+
+    .company-list-link {
+      display: block;
+      text-align: center;
+      color: #44b6d9;
+      font-size: 16px;
+      font-weight: 400;
+      padding: 8px 0;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+} 

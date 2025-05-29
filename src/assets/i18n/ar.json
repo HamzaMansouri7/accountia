@@ -3,10 +3,33 @@
     "dashboard": "لوحة التحكم",
     "profile": "الملف الشخصي",
     "settings": "الإعدادات",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+    "invoices": "الفواتير",
+    "contact": "جهات الاتصال",
+    "warehouse": "المخزن",
+    "product": "المنتج",
+    "fees": "الرسوم",
+    "employees": "الموظفون",
+    "salary": "الراتب",
+    "reports": "التقارير"
   },
   "common": {
     "welcome": "مرحباً",
     "loading": "جاري التحميل..."
+  },
+  "header": {
+    "companyName": "اسم الشركة 1",
+    "reports": "التقارير",
+    "userName": "جون دو"
+  },
+  "company": {
+    "name1": "اسم الشركة 1",
+    "name2": "اسم الشركة 2 ...",
+    "list": "قائمة الشركات"
+  },
+  "reports": {
+    "sales": "تقرير المبيعات",
+    "finance": "تقرير المالي",
+    "inventory": "تقرير المخزون"
   }
 } 

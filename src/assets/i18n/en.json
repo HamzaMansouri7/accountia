@@ -3,10 +3,33 @@
     "dashboard": "Dashboard",
     "profile": "Profile",
     "settings": "Settings",
-    "logout": "Logout"
+    "logout": "Logout",
+    "invoices": "Invoices",
+    "contact": "Contact",
+    "warehouse": "Warehouse",
+    "product": "Product",
+    "fees": "Fees",
+    "employees": "Employees",
+    "salary": "Salary",
+    "reports": "Reports"
   },
   "common": {
     "welcome": "Welcome",
     "loading": "Loading..."
+  },
+  "header": {
+    "companyName": "Company Name 1",
+    "reports": "Reports",
+    "userName": "John Doe"
+  },
+  "company": {
+    "name1": "Company Name 1",
+    "name2": "Company Name 2 ...",
+    "list": "Company list"
+  },
+  "reports": {
+    "sales": "Sales Report",
+    "finance": "Finance Report",
+    "inventory": "Inventory Report"
   }
 } 

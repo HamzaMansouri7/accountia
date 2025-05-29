@@ -5,19 +5,26 @@ import { LanguageSwitcherComponent } from './components/language-switcher/langua
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { SidenavComponent } from './core/sidenav/sidenav.component';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, SidenavComponent, LanguageSwitcherComponent],
+  imports: [
+    RouterOutlet, 
+    HeaderComponent, 
+    FooterComponent, 
+    SidenavComponent, 
+    LanguageSwitcherComponent,
+    TranslateModule
+  ],
   template: `
     <div class="app-container" [dir]="currentDirection">
       <app-header></app-header>
       <app-sidenav></app-sidenav>
-      <app-language-switcher></app-language-switcher>
       <main class="main-content">
         <router-outlet></router-outlet>
-      </main>
+      </main> 
       <app-footer></app-footer>
     </div>
   `,
@@ -26,9 +33,16 @@ import { SidenavComponent } from './core/sidenav/sidenav.component';
 export class AppComponent {
   currentDirection: string = 'ltr';
 
-  constructor(private languageService: LanguageService) {
+  constructor(
+    private languageService: LanguageService,
+    private translateService: TranslateService
+  ) {
     this.languageService.getCurrentDirection().subscribe((dir: string) => {
       this.currentDirection = dir;
     });
+    
+    // Initialize translation
+    this.translateService.setDefaultLang('en');
+    this.translateService.use('en');
   }
 }
