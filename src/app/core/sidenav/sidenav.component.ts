@@ -9,29 +9,7 @@ import { Router, RouterModule } from '@angular/router';
   selector: 'app-sidenav',
   standalone: true,
   imports: [CommonModule, TranslateModule, RouterModule],
-  template: `
-    <nav class="sidenav" [class.rtl]="direction === 'rtl'">
-      <div class="sidenav-header">
-        <span class="logo">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="32" height="32" rx="8" fill="#E7AC28"/>
-            <text x="16" y="22" text-anchor="middle" fill="#fff" font-size="18" font-family="Open Sans" font-weight="bold">C</text>
-          </svg>
-        </span>
-        <span class="company-name">Accountia</span>
-      </div>
-      <ul class="sidenav-menu">
-        <li *ngFor="let item of menuItems"
-            class="menu-item"
-            [class.active]="isActive(item.route)"
-            (click)="onMenuClick(item)">
-          <img class="icon" [src]="item.icon" [alt]="item.label | translate" />
-          <span class="label">{{ item.label | translate }}</span>
-          <span class="dropdown" *ngIf="item.hasDropdown">▼</span>
-        </li>
-      </ul>
-    </nav>
-  `,
+  templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent {
