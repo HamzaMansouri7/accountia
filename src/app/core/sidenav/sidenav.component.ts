@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
 import { TranslateModule } from '@ngx-translate/core';
@@ -12,11 +12,13 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent {
+export class SidenavComponent implements OnInit, OnDestroy {
   direction: string = 'ltr';
   menuItems: SidenavMenuItem[] = [];
   openDropdown: string | null = null;
   collapsed = false;
+  resizeListener: (() => void) | null = null;
+
   constructor(
     private languageService: LanguageService,
     private sidenavService: SidenavService,
@@ -25,6 +27,23 @@ export class SidenavComponent {
     this.languageService.getCurrentDirection().subscribe(dir => this.direction = dir);
     this.menuItems = this.sidenavService.getMenuItems();
     console.log('Sidenav menu items:', this.menuItems);
+  }
+
+  ngOnInit() {
+    this.handleResize();
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  handleResize = () => {
+    if (window.innerWidth <= 991) {
+      this.collapsed = true;
+    } else {
+      this.collapsed = false;
+    }
   }
 
   isActive(route: string): boolean {
