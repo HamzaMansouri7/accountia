@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import './styles/common';
+@import './styles/ltr';
+@import './styles/rtl';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* RTL specific styles */
+[dir="rtl"] {
+  text-align: right;
+  
+  .side-nav {
+    border-right: none;
+    border-left: 1px solid #dee2e6;
+  }
+}
+
+/* LTR specific styles */
+[dir="ltr"] {
+  text-align: left;
+  
+  .side-nav {
+    border-left: none;
+    border-right: 1px solid #dee2e6;
+  }
+}
+
+/* Common styles */
+.side-nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.main-content {
+  margin-left: 250px;
+  transition: all 0.3s ease;
+}
+
+[dir="rtl"] .main-content {
+  margin-left: 0;
+  margin-right: 250px;
+}

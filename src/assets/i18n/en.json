@@ -1,0 +1,12 @@
+{
+  "navigation": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading..."
+  }
+} 
