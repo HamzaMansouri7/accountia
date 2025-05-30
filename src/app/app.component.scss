@@ -1,5 +1,6 @@
 // Variables
 $sidenav-width: 260px;
+$sidenav-width-collapsed: 60px;
 $transition-duration: 0.3s;
 $z-index-header: 1000;
 $z-index-language-switcher: 1001;
@@ -34,6 +35,26 @@ $z-index-language-switcher: 1001;
   }
 }
 
+// Collapsed sidebar
+.sidenav-collapsed .main-content {
+  margin-left: $sidenav-width-collapsed;
+  @include rtl {
+    margin-left: 0;
+    margin-right: $sidenav-width-collapsed;
+  }
+}
+
+// Responsive: always collapsed on tablet/mobile
+@media (max-width: 991px) {
+  .main-content {
+    margin-left: $sidenav-width-collapsed !important;
+    @include rtl {
+      margin-left: 0 !important;
+      margin-right: $sidenav-width-collapsed !important;
+    }
+  }
+}
+
 // Header
 app-header {
   position: fixed;
@@ -46,6 +67,22 @@ app-header {
   @include rtl {
     left: 0;
     right: $sidenav-width;
+  }
+}
+.sidenav-collapsed app-header {
+  left: $sidenav-width-collapsed;
+  @include rtl {
+    left: 0;
+    right: $sidenav-width-collapsed;
+  }
+}
+@media (max-width: 991px) {
+  app-header {
+    left: $sidenav-width-collapsed !important;
+    @include rtl {
+      left: 0 !important;
+      right: $sidenav-width-collapsed !important;
+    }
   }
 }
 
@@ -70,5 +107,21 @@ app-footer {
   @include rtl {
     margin-left: 0;
     margin-right: $sidenav-width;
+  }
+}
+.sidenav-collapsed app-footer {
+  margin-left: $sidenav-width-collapsed;
+  @include rtl {
+    margin-left: 0;
+    margin-right: $sidenav-width-collapsed;
+  }
+}
+@media (max-width: 991px) {
+  app-footer {
+    margin-left: $sidenav-width-collapsed !important;
+    @include rtl {
+      margin-left: 0 !important;
+      margin-right: $sidenav-width-collapsed !important;
+    }
   }
 }

@@ -5,10 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 48px;
   box-sizing: border-box;
   border-bottom: 1.5px solid #e0e0e0;
-  /* Subtle shadow for depth */
   box-shadow: 0 2px 8px rgba(79, 37, 102, 0.04);
   z-index: 1002;
 }
@@ -30,22 +28,40 @@
 
 @media (max-width: 600px) {
   .header {
-    height: 52px;
-    padding: 0 8px;
+    height: 48px;
+    padding: 0 4px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
   .header-left, .header-right {
-    gap: 6px;
+    gap: 4px;
   }
   .company-badge, .user-avatar {
-    width: 24px;
-    height: 24px;
-    font-size: 13px;
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
   }
   .company-name, .user-name, .reports-link {
-    font-size: 13px;
+    font-size: 11px;
   }
   .reports-link {
-    margin-left: 8px;
+    margin-left: 4px;
+  }
+  .header-right {
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+  .user-name {
+    display: none;
+  }
+  .logout-icon {
+    width: 24px;
+    height: 24px;
+    img, svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 

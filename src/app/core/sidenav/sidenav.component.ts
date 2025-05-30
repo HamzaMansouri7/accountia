@@ -1,9 +1,13 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { SidenavService, SidenavMenuItem } from './sidenav.service';
 import { Router, RouterModule } from '@angular/router';
+import { Store, Select, Actions, ofActionDispatched } from '@ngxs/store';
+import { UiState } from '../../store/ui.state';
+import { CollapseSidenav, ExpandSidenav, ToggleSidenav } from '../../store/ui.action';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sidenav',
@@ -16,33 +20,48 @@ export class SidenavComponent implements OnInit, OnDestroy {
   direction: string = 'ltr';
   menuItems: SidenavMenuItem[] = [];
   openDropdown: string | null = null;
-  collapsed = false;
-  resizeListener: (() => void) | null = null;
+  @Select(UiState.sidenavCollapsed) collapsed$!: Observable<boolean>;
+  collapsed: boolean = false;
+  @Output() collapsedChange = new EventEmitter<boolean>();
+  private actionsSub!: Subscription;
 
   constructor(
     private languageService: LanguageService,
     private sidenavService: SidenavService,
-    private router: Router
+    private router: Router,
+    private store: Store,
+    private actions$: Actions
   ) {
     this.languageService.getCurrentDirection().subscribe(dir => this.direction = dir);
     this.menuItems = this.sidenavService.getMenuItems();
-    console.log('Sidenav menu items:', this.menuItems);
   }
 
   ngOnInit() {
+    this.collapsed$?.subscribe(val => {
+      this.collapsed = val;
+      this.collapsedChange.emit(val);
+    });
     this.handleResize();
     window.addEventListener('resize', this.handleResize);
+    this.actionsSub = this.actions$
+      .pipe(ofActionDispatched(ToggleSidenav, CollapseSidenav, ExpandSidenav))
+      .subscribe(action => {
+        // You can add custom logic here if needed when actions are dispatched
+        // For now, just log
+        console.log('Sidenav action dispatched:', action);
+      });
   }
 
   ngOnDestroy() {
     window.removeEventListener('resize', this.handleResize);
+    if (this.actionsSub) this.actionsSub.unsubscribe();
   }
 
   handleResize = () => {
     if (window.innerWidth <= 991) {
-      this.collapsed = true;
+      this.store.dispatch(new CollapseSidenav());
     } else {
-      this.collapsed = false;
+      this.store.dispatch(new ExpandSidenav());
     }
   }
 
@@ -68,6 +87,6 @@ export class SidenavComponent implements OnInit, OnDestroy {
   }
 
   toggleSidenav() {
-    this.collapsed = !this.collapsed;
+    this.store.dispatch(new ToggleSidenav());
   }
 } 

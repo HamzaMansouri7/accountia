@@ -6,6 +6,9 @@ import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { SidenavComponent } from './core/sidenav/sidenav.component';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import { Select } from '@ngxs/store';
+import { UiState } from './store/ui.state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -18,20 +21,12 @@ import { TranslateService, TranslateModule } from '@ngx-translate/core';
     LanguageSwitcherComponent,
     TranslateModule
   ],
-  template: `
-    <div class="app-container" [dir]="currentDirection">
-      <app-header></app-header>
-      <app-sidenav></app-sidenav>
-      <main class="main-content">
-        <router-outlet></router-outlet>
-      </main> 
-      <app-footer></app-footer>
-    </div>
-  `,
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   currentDirection: string = 'ltr';
+  @Select(UiState.sidenavCollapsed) sidenavIsCollapsed$!: Observable<boolean>;
 
   constructor(
     private languageService: LanguageService,
