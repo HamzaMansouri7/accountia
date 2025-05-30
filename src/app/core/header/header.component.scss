@@ -7,6 +7,46 @@
   justify-content: space-between;
   padding: 0 48px;
   box-sizing: border-box;
+  border-bottom: 1.5px solid #e0e0e0;
+  /* Subtle shadow for depth */
+  box-shadow: 0 2px 8px rgba(79, 37, 102, 0.04);
+  z-index: 1002;
+}
+
+@media (max-width: 991px) {
+  .header {
+    height: 60px;
+    padding: 0 24px;
+  }
+  .company-badge, .user-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+  .company-name, .user-name, .reports-link {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: 52px;
+    padding: 0 8px;
+  }
+  .header-left, .header-right {
+    gap: 6px;
+  }
+  .company-badge, .user-avatar {
+    width: 24px;
+    height: 24px;
+    font-size: 13px;
+  }
+  .company-name, .user-name, .reports-link {
+    font-size: 13px;
+  }
+  .reports-link {
+    margin-left: 8px;
+  }
 }
 
 .header-left {

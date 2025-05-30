@@ -1,12 +1,18 @@
 <nav class="sidenav" [class.collapsed]="collapsed" [class.rtl]="direction === 'rtl'">
   <div class="sidenav-header">
     <span class="logo">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="32" height="32" rx="8" fill="#E7AC28"/>
-        <text x="16" y="22" text-anchor="middle" fill="#fff" font-size="18" font-family="Open Sans" font-weight="bold">C</text>
-      </svg>
+      <ng-container *ngIf="collapsed; else expandedLogo">
+        <img src="assets/svg/header-sm-screen-logo.svg" alt="Accountia Logo" width="32" height="32" />
+      </ng-container>
+      <ng-template #expandedLogo>
+        <picture>
+          <source srcset="assets/svg/header-sm-screen-logo.svg" media="(max-width: 600px)">
+          <source srcset="assets/svg/header-md-screen-logo.svg" media="(max-width: 991px)">
+          <img src="assets/svg/header-lg-screen-logo.svg" alt="Accountia Logo" width="auto" height="auto" />
+        </picture>
+      </ng-template>
     </span>
-    <span class="company-name" *ngIf="!collapsed">Accountia</span>
+    <!-- <span class="company-name" *ngIf="!collapsed">Accountia</span> -->
     <button class="collapse-btn" (click)="toggleSidenav()" [attr.aria-label]="collapsed ? 'Expand menu' : 'Collapse menu'">
       <img src="assets/svg/arrow.svg" alt="Collapse" [class.rotated]="collapsed" />
     </button>
