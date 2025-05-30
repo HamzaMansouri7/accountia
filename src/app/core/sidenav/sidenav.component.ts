@@ -11,8 +11,6 @@ import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sidenav',
-  standalone: true,
-  imports: [CommonModule, TranslateModule, RouterModule],
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })

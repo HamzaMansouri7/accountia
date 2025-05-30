@@ -6,10 +6,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CoreModule } from './core/core.module';
 import { NgxsModule } from '@ngxs/store';
 import { UiState } from './store/ui.state';
+import { RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -18,12 +17,10 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LanguageSwitcherComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     CoreModule,
     NgxsModule.forRoot([UiState]),
@@ -34,7 +31,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       },
       defaultLanguage: 'en'
-    })
+    }),
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

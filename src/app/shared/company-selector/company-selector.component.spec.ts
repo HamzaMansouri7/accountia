@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CompanySelectorComponent } from './company-selector.component';
+import { CompanySelectorComponent } from './company-selector/company-selector.component';
 import { By } from '@angular/platform-browser';
 
 describe('CompanySelectorComponent', () => {
