@@ -6,6 +6,7 @@ import { CompanySelectorComponent } from '../../shared/company-selector/company-
 import { Store } from '@ngxs/store';
 import { UiState } from '../../store/ui.state';
 import { Observable, Subscription, combineLatest } from 'rxjs';
+import { UserListItem } from '../../shared/users-list/users-list.component';
 
 @Component({
   selector: 'app-header',
@@ -18,6 +19,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @HostBinding('style.marginLeft') marginLeft: string = '240px';
   @HostBinding('style.marginRight') marginRight: string = '';
   private sub!: Subscription;
+
+  users: UserListItem[] = [
+    { id: '1', name: 'John Doe', avatarUrl: 'https://randomuser.me/api/portraits/men/1.jpg' },
+    { id: '2', name: 'Jane Smith', avatarUrl: 'https://randomuser.me/api/portraits/women/2.jpg' },
+    { id: '3', name: 'Alice Brown', avatarUrl: 'https://randomuser.me/api/portraits/women/3.jpg' },
+    { id: '4', name: 'Bob White', avatarUrl: 'https://randomuser.me/api/portraits/men/4.jpg' },
+    { id: '5', name: 'John Doe', avatarUrl: 'https://randomuser.me/api/portraits/men/1.jpg' },
+    { id: '6', name: 'Jane Smith', avatarUrl: 'https://randomuser.me/api/portraits/women/2.jpg' }
+  ];
+  selectedUserId: string = '1';
 
   constructor(private store: Store) {}
 
@@ -35,6 +46,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.marginRight = '';
       }
     });
+  }
+
+  onUserSelected(user: UserListItem) {
+    this.selectedUserId = user.id;
   }
 
   ngOnDestroy() {
