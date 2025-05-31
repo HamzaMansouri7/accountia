@@ -12,9 +12,8 @@
         </picture>
       </ng-template>
     </span>
-    <!-- <span class="company-name" *ngIf="!collapsed">Accountia</span> -->
     <button class="collapse-btn" (click)="toggleSidenav()" [attr.aria-label]="collapsed ? 'Expand menu' : 'Collapse menu'">
-      <img src="assets/svg/arrow.svg" alt="Collapse" [class.rotated]="collapsed" />
+      <img src="assets/svg/arrow.svg" alt="Collapse" [class.rotated]="collapsed" style="transition: transform 0.3s;" />
     </button>
   </div>
   <ul class="sidenav-menu">

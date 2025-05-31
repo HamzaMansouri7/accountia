@@ -39,12 +39,13 @@ html, body {
   transition: all 0.3s ease;
 }
 
-.main-content {
-  margin-left: 250px;
-  transition: all 0.3s ease;
-}
-
-[dir="rtl"] .main-content {
-  margin-left: 0;
-  margin-right: 250px;
-}
+// Removed global .main-content margin and transition rules to allow dynamic layout from app.component.scss
+// .main-content {
+//   margin-left: 250px;
+//   transition: all 0.3s ease;
+// }
+//
+// [dir="rtl"] .main-content {
+//   margin-left: 0;
+//   margin-right: 250px;
+// }

@@ -1,0 +1,31 @@
+// Primary Colors
+$primary-purple: #4F2566;
+$primary-purple-dark: #4A2260;
+$primary-purple-medium: #72418B;
+$primary-purple-light: #8F709F;
+$primary-yellow: #ECB22E;
+$primary-yellow-medium: #FBC558;
+$primary-yellow-light: #FCD078;
+$primary-dark: #1F2933;
+$primary-dark-medium: #3E4C59;
+
+// Sidenav Widths
+$sidenav-width: 240px;
+$sidenav-width-collapsed: 60px;
+
+// Main Content Widths
+$main-content-width: calc(100vw - #{$sidenav-width});
+$main-content-width-collapsed: calc(100vw - #{$sidenav-width-collapsed});
+$main-content-width-mobile: 100vw;
+
+// Secondary Colors
+$secondary-red: #E94B4B;
+$secondary-green: #5DBB63;
+$secondary-blue: #4FC3F7;
+$secondary-grey: #CBD2D9;
+$secondary-grey-light: #F5F7FA;
+$secondary-grey-medium: #E4E7EB;
+
+// Text Colors
+$primary-text: #fff;
+$secondary-text: #CBD2D9; 

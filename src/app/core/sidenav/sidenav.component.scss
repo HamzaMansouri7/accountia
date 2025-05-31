@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 .rectangle-178 {
   width: 190px;
   height: 1125px;
@@ -527,11 +529,15 @@
   position: relative;
 }
 
+// Ensure sidenav and header widths are consistent
+$sidenav-width: 240px;
+$sidenav-width-collapsed: 60px;
+
 .sidenav {
-  width: 190px;
+  width: $sidenav-width;
   height: 100vh;
-  background: #4F2566;
-  color: #fff;
+  background: $primary-purple;
+  color: $primary-text;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -548,7 +554,7 @@
 }
 
 .sidenav.collapsed {
-  width: 60px;
+  width: $sidenav-width-collapsed;
 }
 
 .sidenav.collapsed .company-name,
@@ -562,9 +568,15 @@
   align-items: center;
   height: 72px;
   padding: 0 10px;
-  background: #4A2260;
+  background: $primary-purple-dark;
   border-bottom: none;
   position: relative;
+  width: $sidenav-width;
+  transition: width 0.2s;
+}
+
+.sidenav.collapsed .sidenav-header {
+  width: $sidenav-width-collapsed;
 }
 
 .collapse-btn {
@@ -616,21 +628,29 @@
   flex-direction: column;
   gap: 4px;
   margin-top: 24px;
+  overflow-y: auto;
+  max-height: calc(100vh - 72px);
 }
 
-.menu-item {
+.menu-item,
+.submenu-item {
   display: flex;
   align-items: center;
+  width: 100%;
   padding: 12px 24px;
   font-size: 16px;
-  color: #CBD2D9;
+  color: $secondary-text;
   cursor: pointer;
   border-radius: 4px 0 0 4px;
   transition: background 0.2s, color 0.2s;
   font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.menu-item .icon {
+.menu-item .icon,
+.submenu-item .icon {
   width: 20px;
   height: 20px;
   margin-right: 16px;
@@ -638,49 +658,49 @@
   vertical-align: middle;
 }
 
-.menu-item.active, .menu-item:hover {
+.menu-item.active, .menu-item:hover,
+.submenu-item.active, .submenu-item:hover {
   background: none;
-  color: #E7AC28;
+  color: $primary-yellow;
 }
 
 .menu-item.active .label,
-.menu-item:hover .label {
-  color: #E7AC28;
+.menu-item:hover .label,
+.submenu-item.active .label,
+.submenu-item:hover .label {
+  color: $primary-yellow;
 }
 
 .menu-item.active .icon,
-.menu-item:hover .icon {
-  filter: brightness(1.2) drop-shadow(0 0 2px #E7AC28);
+.menu-item:hover .icon,
+.submenu-item.active .icon,
+.submenu-item:hover .icon {
+  filter: brightness(1.2) drop-shadow(0 0 2px $primary-yellow);
 }
 
 .submenu {
-  list-style: none;
-  padding: 0 0 0 36px;
+  width: 100%;
+  background: $primary-purple;
+  color: $primary-text;
   margin: 0;
-  background: transparent;
+  padding: 0;
+  list-style: none;
+  box-shadow: none;
+  display: block;
+  position: static;
 }
 
 .submenu-item {
-  display: flex;
-  align-items: center;
-  padding: 8px 0 8px 0;
   font-size: 15px;
-  color: #CBD2D9;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.2s, color 0.2s;
-  font-weight: 400;
-}
+  color: $secondary-text;
+  padding: 10px 24px 10px 48px !important;
+  border-left: 2px solid transparent;
+  transition: color 0.2s, border-left 0.2s;
 
-.submenu-item .icon {
-  width: 18px;
-  height: 18px;
-  margin-right: 12px;
-}
-
-.submenu-item:hover, .submenu-item.active {
-  color: #E7AC28;
-  background: rgba(231, 172, 40, 0.08);
+  &:hover {
+    color: $primary-yellow;
+    border-left: 2px solid $primary-yellow;
+  }
 }
 
 .collapse-btn img {
@@ -697,4 +717,13 @@
 }
 .dropdown svg.rotated {
   transform: rotate(180deg);
+}
+
+.main-content {
+  margin-left: $sidenav-width;
+  transition: margin-left 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.sidenav-collapsed .main-content {
+  margin-left: $sidenav-width-collapsed;
+  transition: margin-left 0.3s cubic-bezier(0.4,0,0.2,1);
 }

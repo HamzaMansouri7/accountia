@@ -18,7 +18,6 @@ export class SidenavComponent implements OnInit, OnDestroy {
   direction: string = 'ltr';
   menuItems: SidenavMenuItem[] = [];
   openDropdown: string | null = null;
-  @Select(UiState.sidenavCollapsed) collapsed$!: Observable<boolean>;
   collapsed: boolean = false;
   @Output() collapsedChange = new EventEmitter<boolean>();
   private actionsSub!: Subscription;
@@ -35,23 +34,18 @@ export class SidenavComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.collapsed$?.subscribe(val => {
-      this.collapsed = val;
-      this.collapsedChange.emit(val);
-    });
-    this.handleResize();
-    window.addEventListener('resize', this.handleResize);
+    this.collapsed = this.store.selectSnapshot(UiState.sidenavCollapsed);
+    this.collapsedChange.emit(this.collapsed);
     this.actionsSub = this.actions$
       .pipe(ofActionDispatched(ToggleSidenav, CollapseSidenav, ExpandSidenav))
-      .subscribe(action => {
-        // You can add custom logic here if needed when actions are dispatched
-        // For now, just log
-        console.log('Sidenav action dispatched:', action);
+      .subscribe(() => {
+        this.collapsed = this.store.selectSnapshot(UiState.sidenavCollapsed);
+        this.collapsedChange.emit(this.collapsed);
       });
+    this.handleResize();
   }
 
   ngOnDestroy() {
-    window.removeEventListener('resize', this.handleResize);
     if (this.actionsSub) this.actionsSub.unsubscribe();
   }
 

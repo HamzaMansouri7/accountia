@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LanguageService } from './services/language.service';
 import { LanguageSwitcherComponent } from './shared/language-switcher/language-switcher.component';
@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   currentDirection: string = 'ltr';
   @Select(UiState.sidenavCollapsed) sidenavIsCollapsed$!: Observable<boolean>;
 
@@ -31,5 +31,11 @@ export class AppComponent {
     // Initialize translation
     this.translateService.setDefaultLang('en');
     this.translateService.use('en');
+  }
+
+  ngOnInit() {
+    this.sidenavIsCollapsed$.subscribe(val => {
+      console.log('[AppComponent] sidenavIsCollapsed$', val);
+    });
   }
 }
