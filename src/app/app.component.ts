@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, OnDestroy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LanguageService } from './services/language.service';
 import { LanguageSwitcherComponent } from './shared/language-switcher/language-switcher.component';
@@ -8,6 +8,7 @@ import { SidenavComponent } from './core/sidenav/sidenav.component';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { Store } from '@ngxs/store';
 import { UiState } from './store/ui.state';
+import { SetDirection } from './store/ui.action';
 import { Observable, Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
@@ -16,9 +17,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  currentDirection: string = 'ltr';
+export class AppComponent implements OnInit, OnDestroy {
   sidenavIsCollapsed$!: Observable<boolean>;
+  direction$!: Observable<'ltr' | 'rtl'>;
   private sub!: Subscription;
 
   constructor(
@@ -27,9 +28,8 @@ export class AppComponent implements OnInit {
     private store: Store
   ) {
     this.languageService.getCurrentDirection().subscribe((dir: string) => {
-      this.currentDirection = dir;
+      this.store.dispatch(new SetDirection(dir as 'ltr' | 'rtl'));
     });
-    
     // Initialize translation
     this.translateService.setDefaultLang('en');
     this.translateService.use('en');
@@ -37,11 +37,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.sidenavIsCollapsed$ = this.store.select(UiState.sidenavCollapsed);
-    this.sub = this.sidenavIsCollapsed$.subscribe(val => {
-      // Optionally, you can add logic here for app-container or main-content
-      // e.g., set a class or style dynamically if needed
-      // console.log('[AppComponent] sidenavIsCollapsed$', val);
-    });
+    this.direction$ = this.store.select(UiState.direction);
   }
 
   ngOnDestroy() {
