@@ -544,7 +544,6 @@ $sidenav-width-collapsed: 60px;
   top: 0;
   left: 0;
   z-index: 1001;
-  font-family: 'Open Sans', sans-serif;
   transition: width 0.2s, left 0.2s, right 0.2s;
 }
 
@@ -614,7 +613,7 @@ $sidenav-width-collapsed: 60px;
 }
 
 .company-name {
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   font-size: 20px;
   color: #E7AC28;
 }
@@ -638,12 +637,11 @@ $sidenav-width-collapsed: 60px;
   align-items: center;
   width: 100%;
   padding: 12px 24px;
-  font-size: 16px;
   color: $secondary-text;
   cursor: pointer;
   border-radius: 4px 0 0 4px;
   transition: background 0.2s, color 0.2s;
-  font-weight: 400;
+  font-weight: $font-weight-normal;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -691,8 +689,6 @@ $sidenav-width-collapsed: 60px;
 }
 
 .submenu-item {
-  font-size: 15px;
-  color: $secondary-text;
   padding: 10px 24px 10px 48px !important;
   border-left: 2px solid transparent;
   transition: color 0.2s, border-left 0.2s;

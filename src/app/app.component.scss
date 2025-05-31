@@ -28,7 +28,6 @@ $z-index-language-switcher: 1001;
 // Main content area
 .main-content {
   flex: 1;
-  background-color: aqua;
   transition: margin-left 0.3s cubic-bezier(0.4,0,0.2,1), margin-right 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 
