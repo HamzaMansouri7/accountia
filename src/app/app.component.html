@@ -2,7 +2,7 @@
   <app-sidenav></app-sidenav>
   <app-header></app-header>
 
-  <main class="main-content">
+  <main class="main-content" [ngStyle]="currentDirection === 'rtl' ? {'margin-right': (sidenavIsCollapsed$ | async) ? '62px' : '240px', 'margin-left': ''} : {'margin-left': (sidenavIsCollapsed$ | async) ? '62px' : '240px', 'margin-right': ''}">
 
     <router-outlet></router-outlet>
   </main>

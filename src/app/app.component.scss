@@ -29,28 +29,16 @@ $z-index-language-switcher: 1001;
 .main-content {
   flex: 1;
   background-color: aqua;
-  width: $main-content-width;
-  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
-  @include rtl {
-    width: $main-content-width;
-  }
-}
-
-// Collapsed sidebar
-.sidenav-collapsed .main-content {
-  width: $main-content-width-collapsed;
-  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
-  @include rtl {
-    width: $main-content-width-collapsed;
-  }
+  transition: margin-left 0.3s cubic-bezier(0.4,0,0.2,1), margin-right 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 
 // Responsive: always collapsed on tablet/mobile
 @media (max-width: 991px) {
   .main-content {
-    width: $main-content-width-mobile !important;
+    margin-left: $sidenav-width-collapsed !important;
     @include rtl {
-      width: $main-content-width-mobile !important;
+      margin-left: 0 !important;
+      margin-right: $sidenav-width-collapsed !important;
     }
   }
 }
@@ -59,29 +47,31 @@ $z-index-language-switcher: 1001;
 app-header {
   position: fixed;
   top: 0;
-  left: $sidenav-width;
+  left: 0;
   right: 0;
+  margin-left: $sidenav-width;
   z-index: $z-index-header;
-  transition: left 0.3s cubic-bezier(0.4,0,0.2,1), right 0.3s cubic-bezier(0.4,0,0.2,1);
+  background: $header-bg;
+  transition: margin-left 0.3s cubic-bezier(0.4,0,0.2,1);
   @include rtl {
-    left: 0;
-    right: $sidenav-width;
+    margin-left: 0;
+    margin-right: $sidenav-width;
   }
 }
 .sidenav-collapsed app-header {
-  left: $sidenav-width-collapsed;
-  transition: left 0.3s cubic-bezier(0.4,0,0.2,1), right 0.3s cubic-bezier(0.4,0,0.2,1);
+  margin-left: $sidenav-width-collapsed;
+  transition: margin-left 0.3s cubic-bezier(0.4,0,0.2,1);
   @include rtl {
-    left: 0;
-    right: $sidenav-width-collapsed;
+    margin-left: 0;
+    margin-right: $sidenav-width-collapsed;
   }
 }
 @media (max-width: 991px) {
   app-header {
-    left: $sidenav-width-collapsed !important;
+    margin-left: $sidenav-width-collapsed !important;
     @include rtl {
-      left: 0 !important;
-      right: $sidenav-width-collapsed !important;
+      margin-left: 0 !important;
+      margin-right: $sidenav-width-collapsed !important;
     }
   }
 }
@@ -109,12 +99,12 @@ app-footer {
     margin-right: $sidenav-width;
   }
 }
-.sidenav-collapsed app-footer {
-  margin-left: $sidenav-width-collapsed;
-  transition: margin-left 0.3s cubic-bezier(0.4,0,0.2,1);
+.app-container.sidenav-collapsed app-footer {
+  margin-left: 62px !important;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   @include rtl {
-    margin-left: 0;
-    margin-right: $sidenav-width-collapsed;
+    margin-left: 0 !important;
+    margin-right: 62px !important;
   }
 }
 @media (max-width: 991px) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LanguageService } from './services/language.service';
 import { LanguageSwitcherComponent } from './shared/language-switcher/language-switcher.component';
@@ -6,9 +6,9 @@ import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { SidenavComponent } from './core/sidenav/sidenav.component';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
-import { Select } from '@ngxs/store';
+import { Store } from '@ngxs/store';
 import { UiState } from './store/ui.state';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -18,11 +18,13 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent implements OnInit {
   currentDirection: string = 'ltr';
-  @Select(UiState.sidenavCollapsed) sidenavIsCollapsed$!: Observable<boolean>;
+  sidenavIsCollapsed$!: Observable<boolean>;
+  private sub!: Subscription;
 
   constructor(
     private languageService: LanguageService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private store: Store
   ) {
     this.languageService.getCurrentDirection().subscribe((dir: string) => {
       this.currentDirection = dir;
@@ -34,8 +36,15 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sidenavIsCollapsed$.subscribe(val => {
-      console.log('[AppComponent] sidenavIsCollapsed$', val);
+    this.sidenavIsCollapsed$ = this.store.select(UiState.sidenavCollapsed);
+    this.sub = this.sidenavIsCollapsed$.subscribe(val => {
+      // Optionally, you can add logic here for app-container or main-content
+      // e.g., set a class or style dynamically if needed
+      // console.log('[AppComponent] sidenavIsCollapsed$', val);
     });
+  }
+
+  ngOnDestroy() {
+    if (this.sub) this.sub.unsubscribe();
   }
 }
