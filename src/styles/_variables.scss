@@ -43,4 +43,23 @@ $font-weight-bold: 700;
 $heading-color: #1F2933;
 $text-color: #3E4C59;
 $link-color: #44b6d9;
-$link-hover-color: #4F2566; 
+$link-hover-color: #4F2566;
+
+// Theme Mode Colors
+$light-bg: #f5f5f5;
+$light-text: #3E4C59;
+$light-heading: #1F2933;
+$light-link: #44b6d9;
+$light-link-hover: #4F2566;
+
+$dark-bg: #1F2933;
+$dark-text: #CBD2D9;
+$dark-heading: #FFFFFF;
+$dark-link: #56CCF2;
+$dark-link-hover: #ECB22E;
+
+// Dark Mode Header and Sidenav Colors
+$dark-header-bg: #1F2933;
+$dark-header-text: #CBD2D9;
+$dark-sidenav-bg: #2D3748;
+$dark-sidenav-text: #CBD2D9; 

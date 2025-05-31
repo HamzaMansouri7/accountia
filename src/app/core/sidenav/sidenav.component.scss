@@ -547,6 +547,11 @@ $sidenav-width-collapsed: 60px;
   transition: width 0.2s, left 0.2s, right 0.2s;
 }
 
+[data-theme="dark"] .sidenav {
+  background: $dark-sidenav-bg;
+  color: $dark-sidenav-text;
+}
+
 .sidenav.rtl {
   left: auto;
   right: 0;
